@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Cosmic Ray Chandeliers</title>
+	<link rel="stylesheet" href="experiment.css" />	
+	<link rel="stylesheet" type="text/css" href="cosmic.css">
+
+<script type="text/javascript">
+
+// factorial function
+
+function factorial(n) {
+    var result = 1;
+    for (var i = 2; i <= n; i++) {
+        result *= i
+    }
+    return result;
+}   
+
+// to determine number events that happen in an interval
+// according to poisson statistics
+
+function numberofcalls() {
+    var num = Math.floor(Math.random()*6);
+    var num2 = Math.random();
+    var prob=1/(Math.E*factorial(num));
+    if (num2 < prob) return num;
+    numberofcalls();
+}
+
+// picks a random color
+
+function setcolor() {
+    var num = Math.floor(Math.random()*7);
+    var colorarray = ["#ED1C24","#F7931E","#FFF200","#8CC63F","#1B75BC","#91278F"]
+    return colorarray[num];
+}
+
+function probability(){
+    var num = Math.floor(Math.random()*15+1);
+    var num2 = Math.random();
+    var prob = Math.pow(Math.cos(num*3.75/180*Math.PI),2);
+    if (num2 < prob) return num;
+    probability();
+}
+
+// turn rod to black
+
+function resetRod(path1,path2){
+    path1.setAttribute("fill","#000000");
+    path2.setAttribute("fill","#000000");
+    }
+
+function changeColor(id) {
+        var rod = 16-probability();
+        var color = setcolor();        
+// get rods
+        var path1=document.getElementById(id).getSVGDocument().getElementById("rod"+rod);
+        var path2=document.getElementById(id).getSVGDocument().getElementById("rod"+rod+"b");
+// color rods
+        path1.setAttribute("fill",color);
+        if (!path2) path2=path1;
+        path2.setAttribute("fill",color);
+// reset rods to black after some amount of time
+        setTimeout(function(){resetRod(path1,path2)},1000);
+}
+
+// Call coloring functions
+    
+function timing(){
+    var i=numberofcalls();
+    if ((i != 0)&&(null!=i)) {
+        for (j = 0; j < i; j++){
+            changeColor("animate1");
+        }
+    }
+    var k=numberofcalls();
+    if ((k != 0)&&(null!=k)) {
+        for (l = 0; l < k; l++){
+            changeColor("animate2");
+        }
+    }
+}
+
+
+function startup(){
+    setInterval("timing()",60);
+}
+
+    </script>
+
+</head>
+<body onload="startup()">
+    <div id="title">
+        <embed src="titleandnames.svg" width="500" height="180">
+    </div>
+    <div id="chandelier1">
+        <embed src="fill.svg" id="animate1">
+    </div>
+    <div id="chandelier2">
+        <embed src="fill.svg" id="animate2">
+    </div>
+	<div class="accordion" id="right">
+			<div id="one" class="section">
+				<span>
+					<a href="#one">ABOUT</a>
+				</span>
+				<div>
+				    <br>
+                    The "Cosmic Ray Chandeliers" is a science-art installation located on M.I.T.'s campus on the <a href="http://whereis.mit.edu/?go=26&go=16&zoom=19&lat=42.360579398191256&lng=-71.09062761068344&open=-1&maptype=mit">5th floor between buildings 16 and 26</a>. The Chandeliers illumiate upon detecting particles, called muons, created in cosmic ray showers.
+                    <br>
+                    <br>
+                    The Chandeliers were built by Tess Smidt (Course 8, Class of 2012), Michael Stunes (Course 6, Class of 2011), Christy Swartz (Course 6, Class of 2013), and Nathaniel Thomas (Courses 8 and 18, Class of 2011). The project was sponsored by the MIT Council for the Arts and the MIT Laboratory for Nuclear Science. The Chandelier Team would like to extend additional thanks to the following people: Professor Janet Conrad, Professor Ulrich Becker, The Helena Foundation Junior Lab (and the amazing people who run it), Steve Smidt, and Ken, Jack, and Jerry from LNS. 
+				</div>
+			</div>
+			<div class="spacer"><br></div>
+			<div id="two" class="section">
+				<span>
+					<a href="#two">HOW IT WORKS</a>
+				</span>
+				<div>
+					<br>
+					Cosmic rays are high speed particles from outer space that bombard the Earth's atmosphere, creating a shower of muons (heavy electron-like particles) and other delicious flavors of particle soup. Cosmic ray showers pour down on Earth's surface continuously and pass through you everyday.
+					<br>
+					<br>
+					The Cosmic Ray Chandeliers detect muons from cosmic ray showers with devices called scintillator paddles (the black objects inside the clear chandelier boxes). These paddles are made of a plastic that emits light or "scintillates" when charged particles pass though it and a photomultiplier tube which detects this light.  The signals from the photomultiplier tubes are processed and then visualized by lighting one of the 16 tubes on each chandelier.
+                    <br>
+                    <br>
+                    The lengths of the rods on the chandelier are proportional to probability of a cosmic ray muon coming in at the angle the rod makes with the imaginary line between the center of the chandelier and the floor directly beneath it. In fact, if you take all 16 rods and lay them on the ground in order, it would look like this:
+                    <br>
+                    <br>
+                    <center><embed src="cos2.svg" width="350" height="380"></center>
+				</div>
+			</div>
+			<div class="spacer"><br></div>
+			<div id="three" class="section large">
+				<span>
+					<a href="#three">VIDEO & PHOTOS</a>
+				</span>
+				<div>
+					<p>
+					    <embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2F112677676392886655802%2Falbumid%2F5754240275646725985%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+                    </p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

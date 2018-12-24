@@ -1,0 +1,54 @@
+/* 
+CSS3 Accordion Experiment
+Date: 25th June 2009
+Author: Paul Hayes
+*/
+ 
+font {
+    color:white;
+}
+ 
+.accordion {
+	width: 420px;
+}
+ 
+.accordion .section {
+	padding: 0 1em;
+	border: 3px solid white;
+	background: #000;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.accordion span a {
+	font-size: 12pt;
+	font-weight: normal;
+}
+ 
+.accordion span + div {
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: height 0.3s ease-in;
+	-moz-transition: height 0.3s ease-in;
+	-o-transition: height 0.3s ease-in;
+	-ms-transition: height 0.3s ease-in;
+	transition: height 0.3s ease-in;
+}
+
+.accordion :target span a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.accordion :target span + div {
+	height: 306px;
+	overflow: auto;
+}
+
+.accordion .section.large:target span + div {
+    height: 306px;
+}
+
+.vspacer {
+    height:25px;
+}

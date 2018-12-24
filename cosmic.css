@@ -1,0 +1,49 @@
+A:link {text-decoration: none; color: white;}
+A:visited {text-decoration: none; color: white;}
+A:active {text-decoration: none; color: white;}
+A:hover {text-decoration: underline; color: white;}
+
+body {
+    font-family: Verdana;
+    color: white;
+}
+
+a img {border: none; }
+
+body {
+    background-color:black;
+    }
+    
+#sign {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    }
+
+#title {
+    position: absolute;
+    top: 350px;
+    left: 25px;
+    }
+
+#right {
+    left:550px;
+    top: 15px;
+    width:470px;
+    position: absolute;
+    }
+
+#chandelier1 {
+    position: absolute;
+    width:250px;
+    top:-35px;
+    left:35px;
+    
+}
+
+#chandelier2 {
+    position: absolute;
+    width:250px;
+    top:-105px;
+    left:335px;
+}
